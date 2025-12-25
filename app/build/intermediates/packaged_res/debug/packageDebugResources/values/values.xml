@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="brand_red">#FF0000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="console_green">#99CC00</color>
+    <color name="gray">#808080</color>
+    <color name="ic_launcher_background">#05F577</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">GeoCellTrack</string>
+    <string name="exit">Exit</string>
+    <string name="firebase_database_url" translatable="false">https://gct-dt-nsql-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">471959672610</string>
+    <string name="google_api_key" translatable="false">AIzaSyDrNzaFLTRjeVoenMASbOKhJ69F_OYuIXQ</string>
+    <string name="google_app_id" translatable="false">1:471959672610:android:d2c7824b5510d25623f77b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDrNzaFLTRjeVoenMASbOKhJ69F_OYuIXQ</string>
+    <string name="google_storage_bucket" translatable="false">gct-dt-nsql.firebasestorage.app</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="power_button_desc">Botón para iniciar el servicio de rastreo</string>
+    <string name="project_id" translatable="false">gct-dt-nsql</string>
+    <string name="register_with_email">Register with Email</string>
+    <string name="tracker_channel_name">Tracker Service Channel</string>
+    <string name="tracker_notification_text">El tracker está en ejecución</string>
+    <string name="tracker_notification_title">GeoCellTrack</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        
+        <item name="colorPrimary">#3F51B5</item>
+        
+        <item name="colorPrimaryDark">#303F9F</item>
+        
+        <item name="colorAccent">#FF4081</item>
+    </style>
+    <style name="Base.Theme.GeoCellTrack" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.GeoCellTrack" parent="Base.Theme.GeoCellTrack"/>
+</resources>

@@ -1,0 +1,166 @@
+[
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_ic_google.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\ic_google.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_ic_microsoft.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\ic_microsoft.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_google_icon.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\google_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\layout_dialog_register.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\layout\\dialog_register.xml"
+    },
+    {
+        "merged": "org.pucusoft.geocelltrack.app-debug-46:/drawable_ic_launcher_background.xml.flat",
+        "source": "org.pucusoft.geocelltrack.app-main-48:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "org.pucusoft.geocelltrack.app-debug-46:/layout_activity_main.xml.flat",
+        "source": "org.pucusoft.geocelltrack.app-main-48:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\anim_scale_up.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\anim\\scale_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\layout_activity_power.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\layout\\activity_power.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "org.pucusoft.geocelltrack.app-debug-46:/xml_backup_rules.xml.flat",
+        "source": "org.pucusoft.geocelltrack.app-main-48:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\layout_dialog_login.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\layout\\dialog_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "org.pucusoft.geocelltrack.app-debug-46:/xml_data_extraction_rules.xml.flat",
+        "source": "org.pucusoft.geocelltrack.app-main-48:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_circle_background_red.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\circle_background_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_circular_progress_bar_neon.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\circular_progress_bar_neon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\layout_activity_running_app.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\layout\\activity_running_app.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\anim_scale_down.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\anim\\scale_down.xml"
+    },
+    {
+        "merged": "org.pucusoft.geocelltrack.app-debug-46:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "org.pucusoft.geocelltrack.app-main-48:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_ic_power_button.xml.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\ic_power_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-debug-46:\\drawable_ic_logotipo.png.flat",
+        "source": "C:\\Users\\Josephpuero\\.gradle\\daemon\\8.13\\org.pucusoft.geocelltrack.app-main-48:\\drawable\\ic_logotipo.png"
+    }
+]
