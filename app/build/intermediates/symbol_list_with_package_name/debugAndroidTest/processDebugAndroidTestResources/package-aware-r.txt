@@ -1,0 +1,3 @@
+org.pucusoft.geocelltrack.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

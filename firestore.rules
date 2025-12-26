@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Un usuario solo puede crear, leer y actualizar su propio perfil.
+    // El ID del documento ({userId}) debe coincidir con el ID del usuario autenticado.
+    match /profiles/{userId} {
+      allow create, read, update: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

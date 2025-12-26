@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GeoCellTrack</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="register_with_email">Register with Email</string>
+    <string name="exit">Exit</string>
+    <string name="power_button_desc">Botón para iniciar el servicio de rastreo</string>
+
+    <!-- Nuevas cadenas para el servicio -->
+    <string name="tracker_notification_title">GeoCellTrack</string>
+    <string name="tracker_notification_text">El tracker está en ejecución</string>
+    <string name="tracker_channel_name">Tracker Service Channel</string>
+</resources>

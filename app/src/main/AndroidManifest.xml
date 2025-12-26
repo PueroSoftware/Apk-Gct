@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ========== PERMISOS ESENCIALES ========== -->
+
+    <!-- 1. Permisos de Ubicación -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!-- 2. Permisos de Telefonía para datos de celda -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"
+        android:minSdkVersion="26" tools:ignore="UnusedAttribute" />
+
+    <!-- 3. Permisos de Red -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 4. Permisos para Servicio en Foreground (Android 8.0+) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <!-- 5. Permisos para que la app no se detenga -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- ========== CARACTERÍSTICAS DE HARDWARE (Para compatibilidad) ========== -->
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.location.network" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GeoCellTrack"
+        android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true"
+        tools:targetApi="31">
+
+        <!-- Meta-data: justificación para ACCESS_BACKGROUND_LOCATION (texto breve).
+             Nota: esto NO sustituye la justificación en Play Console ni la UI al pedir permiso. -->
+        <meta-data
+            android:name="com.geocelltrack.background_location_justification"
+            android:value="Rastreo de ubicación en segundo plano necesario para proporcionar seguimiento continuo de la unidad cuando la app no está en primer plano." />
+
+        <!-- Meta-data: nota interna sobre logs del sistema (no accesible desde clientes) -->
+        <meta-data
+            android:name="com.geocelltrack.system_logs_note"
+            android:value="Mensajes glUtilsParamSize / memtrack provienen del driver del sistema/emulador; generalmente benignos y fuera del control de la app." />
+
+        <!-- ========== ACTIVIDADES ========== -->
+
+        <!-- Actividad de Login/Registro (Ahora es la actividad de inicio) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Actividad de Encendido (ya no es la de inicio) -->
+        <activity
+            android:name=".PowerActivity"
+            android:exported="false" />
+
+        <!-- Actividad de Rastreo -->
+        <activity
+            android:name=".RunningActivity"
+            android:exported="false" />
+
+        <!-- Aquí irían futuras actividades como RegisterActivity o ProfileActivity -->
+
+        <!-- ========== SERVICIOS ========== -->
+        <service
+            android:name=".TrackerService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location"
+            android:stopWithTask="false" />
+
+        <!-- BootReceiver exportado=true para recibir BOOT_COMPLETED del sistema -->
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ========== RECEIVERS (Receptores de eventos del sistema) ========== -->
+
+    </application>
+
+</manifest>

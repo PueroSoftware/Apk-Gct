@@ -1,0 +1,81 @@
+{
+  "sistema": "GeoCellTrack",
+  "version": "1.0",
+  "user_id": "agent_123",
+  "timestamp_unix": 1700000000,
+  "timestamp_iso": "2025-11-14T12:00:00Z",
+  "timezone": "America/Lima",
+  "celdas": {
+    "total": 1,
+    "registradas": 1,
+    "puede_triangular": false,
+    "lista": [
+      {
+        "indice": 0,
+        "registrada": true,
+        "tipo": "LTE",
+        "mcc": "716",
+        "mnc": "06",
+        "tac": 12345,
+        "cell_id": 678901234,
+        "pci": 100,
+        "dbm": -85,
+        "nivel": 3,
+        "asu": 15
+      }
+    ]
+  },
+  "gps": {
+    "lat": -12.046374,
+    "lon": -77.042793,
+    "precision_m": 5.0,
+    "proveedor": "fused",
+    "timestamp_gps_ms": 1700000000000,
+    "consentido": true,
+    "fuente": "fused_location_provider"
+  },
+  "hardware": {
+    "device_uuid": "550e8400-e29b-41d4-a716-446655440000",
+    "imei_hash": null,
+    "imsi_hash": null,
+    "iccid_hash": null,
+    "msisdn_hash": null,
+    "imei": null,
+    "imsi": null,
+    "iccid": null,
+    "line_number": null,
+    "msisdn": null,
+    "network_operator": "71606",
+    "network_operator_name": "Claro",
+    "modelo": "Pixel 6",
+    "fabricante": "Google",
+    "producto": "pixel",
+    "dispositivo": "redfin",
+    "api_level": 33,
+    "android_version": "13"
+  },
+  "sim": {
+    "mcc_red": "716",
+    "mnc_red": "06",
+    "operador_codigo": "71606",
+    "operador_nombre": "Claro",
+    "pais_red": "pe",
+    "pais_sim": "pe"
+  },
+  "estado": {
+    "pantalla_encendida": true,
+    "modo_ahorro_energia": false,
+    "servicio_activo": true,
+    "tiempo_activo_s": 120,
+    "recopilaciones_realizadas": 4
+  },
+  "red": {
+    "tipo": "LTE",
+    "mcc": "716",
+    "mnc": "06",
+    "tac": 12345,
+    "cell_id": 678901234,
+    "potencia_dbm": -85
+  }
+}
+

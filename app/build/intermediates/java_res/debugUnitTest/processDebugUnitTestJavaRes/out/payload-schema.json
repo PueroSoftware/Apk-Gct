@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GeoCellTrack Payload",
+  "type": "object",
+  "required": ["sistema", "user_id", "timestamp_unix", "celdas", "gps", "hardware"],
+  "properties": {
+    "sistema": { "type": "string", "const": "GeoCellTrack" },
+    "version": { "type": "string" },
+    "user_id": { "type": "string" },
+    "timestamp_unix": { "type": "integer" },
+    "timestamp_iso": { "type": "string" },
+    "timezone": { "type": "string" },
+
+    "celdas": {
+      "type": "object",
+      "properties": {
+        "total": { "type": "integer" },
+        "registradas": { "type": "integer" },
+        "puede_triangular": { "type": "boolean" },
+        "nota": { "type": "string" },
+        "lista": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "indice": { "type": "integer" },
+              "registrada": { "type": "boolean" },
+              "tipo": { "type": "string" },
+              "clase": { "type": "string" },
+
+              "mcc": { "type": ["string","integer","null"] },
+              "mnc": { "type": ["string","integer","null"] },
+              "lac": { "type": ["integer","null"] },
+              "tac": { "type": ["integer","null"] },
+              "cell_id": { "type": ["integer","null"] },
+              "pci": { "type": ["integer","null"] },
+              "psc": { "type": ["integer","null"] },
+              "bsic": { "type": ["integer","null"] },
+
+              "network_id": { "type": ["integer","null"] },
+              "system_id": { "type": ["integer","null"] },
+              "base_station_id": { "type": ["integer","null"] },
+
+              "dbm": { "type": ["integer","null"] },
+              "nivel": { "type": ["integer","null"] },
+              "asu": { "type": ["integer","null"] },
+              "rsrp": { "type": ["number","null"] },
+              "rsrq": { "type": ["number","null"] },
+
+              "bts_lat": { "type": ["number","null"] },
+              "bts_lon": { "type": ["number","null"] },
+              "bts_location_estimate": { "type": "boolean" },
+              "bts_location_source": { "type": ["string","null"] },
+
+              "error_procesamiento": { "type": "string" }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "gps": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": ["number","null"] },
+        "lon": { "type": ["number","null"] },
+        "precision_m": { "type": ["number","null"] },
+        "altitud_m": { "type": ["number","null"] },
+        "velocidad_mps": { "type": ["number","null"] },
+        "rumbo_grados": { "type": ["number","null"] },
+        "proveedor": { "type": ["string","null"] },
+        "timestamp_gps_ms": { "type": ["integer","null"] },
+        "consentido": { "type": "boolean" },
+        "fuente": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+
+    "hardware": {
+      "type": "object",
+      "properties": {
+        "device_uuid": { "type": "string" },
+        "imei_hash": { "type": ["string","null"] },
+        "imsi_hash": { "type": ["string","null"] },
+        "iccid_hash": { "type": ["string","null"] },
+        "msisdn_hash": { "type": ["string","null"] },
+        "imei": { "type": ["string","null"] },
+        "imsi": { "type": ["string","null"] },
+        "iccid": { "type": ["string","null"] },
+        "line_number": { "type": ["string","null"] },
+        "msisdn": { "type": ["string","null"] },
+        "network_operator": { "type": ["string","null"] },
+        "network_operator_name": { "type": ["string","null"] },
+        "modelo": { "type": "string" },
+        "fabricante": { "type": "string" },
+        "producto": { "type": "string" },
+        "dispositivo": { "type": "string" },
+        "api_level": { "type": "integer" },
+        "android_version": { "type": "string" },
+        "bateria_porcentaje": { "type": ["integer","null"] },
+        "cargando": { "type": ["boolean","null"] },
+        "temperatura_c": { "type": ["number","null"] }
+      },
+      "additionalProperties": true
+    },
+
+    "sim": {
+      "type": "object",
+      "properties": {
+        "mcc_red": { "type": ["string","null"] },
+        "mnc_red": { "type": ["string","null"] },
+        "operador_codigo": { "type": ["string","null"] },
+        "operador_nombre": { "type": ["string","null"] },
+        "pais_red": { "type": ["string","null"] },
+        "pais_sim": { "type": ["string","null"] },
+        "numero": { "type": ["string","null"] },
+        "iccid": { "type": ["string","null"] },
+        "nota": { "type": ["string","null"] }
+      },
+      "additionalProperties": true
+    },
+
+    "estado": {
+      "type": "object",
+      "properties": {
+        "pantalla_encendida": { "type": "boolean" },
+        "modo_ahorro_energia": { "type": ["boolean","null"] },
+        "servicio_activo": { "type": "boolean" },
+        "tiempo_activo_s": { "type": "integer" },
+        "recopilaciones_realizadas": { "type": "integer" },
+        "gps_provider": { "type": ["string","null"] }
+      },
+      "additionalProperties": true
+    },
+
+    "red": {
+      "type": "object",
+      "properties": {
+        "tipo": { "type": "string" },
+        "mcc": { "type": ["string","integer","null"] },
+        "mnc": { "type": ["string","integer","null"] },
+        "tac": { "type": ["integer","null"] },
+        "cell_id": { "type": ["integer","null"] },
+        "potencia_dbm": { "type": ["integer","null"] },
+        "azimut_servidor": { "type": ["number","null"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Círculo de fondo, semi-transparente -->
+    <item>
+        <shape
+            android:shape="ring"
+            android:innerRadiusRatio="2.5"
+            android:thicknessRatio="15.0"
+            android:useLevel="false">
+            <solid android:color="#4DFFFFFF"/> <!-- Blanco semi-transparente -->
+        </shape>
+    </item>
+    <!-- Círculo de progreso, con el gradiente dorado -->
+    <item>
+        <rotate
+            android:fromDegrees="270"
+            android:toDegrees="270">
+            <shape
+                android:shape="ring"
+                android:innerRadiusRatio="2.5"
+                android:thicknessRatio="15.0"
+                android:useLevel="true">
+                <gradient
+                    android:type="sweep"
+                    android:startColor="#ffda31" 
+                    android:endColor="#fc0" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

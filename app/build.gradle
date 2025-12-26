@@ -1,0 +1,81 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
+}
+
+android {
+    namespace 'org.pucusoft.geocelltrack'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "org.pucusoft.geocelltrack"
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Inyectar API Key desde local.properties
+        buildConfigField "String", "GROQ_API_KEY", "\"${project.findProperty('GROQ_API_KEY') ?: ""}\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding true
+        buildConfig true // Habilitado para leer la API Key
+    }
+}
+
+dependencies {
+    // AndroidX Core
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+
+    // Testing
+    testImplementation libs.junit
+    testImplementation 'com.networknt:json-schema-validator:1.0.79'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    // Firebase
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.firestore
+    implementation libs.firebase.database
+    implementation libs.firebase.auth
+
+    // Google Play Services
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.7.0'
+
+    // WorkManager
+    implementation 'androidx.work:work-runtime:2.9.0'
+
+    // Core
+    implementation 'androidx.core:core:1.12.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
+
+    // NUEVO: Cliente HTTP para Groq AI
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+}

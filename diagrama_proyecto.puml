@@ -1,0 +1,128 @@
+@startuml
+!theme vibrant
+skinparam classAttributeIconSize 0
+skinparam componentStyle uml2
+
+title Diagrama de Arquitectura - GeoCellTrack
+
+package "Capa de Presentación (UI)" {
+    class MainActivity {
+        - FirebaseAuth auth
+        - DatabaseReference usersRef
+        + onCreate()
+        - showPhoneLoginDialog()
+        - startPhoneNumberVerification()
+        - checkUserAndNavigate()
+        - navigateToPowerActivity(userId)
+        .. Flujo ..
+        --> Autenticación Telefónica
+        --> Crea/Actualiza usuario en DB
+    }
+
+    class PowerActivity {
+        - String userId
+        - ExecutorService executorService
+        - ActivityResultLauncher permissionLauncher
+        + onCreate()
+        - setupUI()
+        - checkPermissionsAndStart()
+        - startPowerAnimation()
+        - startTrackerService()
+        .. Flujo ..
+        --> Verifica Permisos (Location, Phone)
+        --> Animaciones de Botón
+        --> Inicia Servicio en Foreground
+    }
+
+    class RunningActivity {
+        - TrackerService trackerService
+        - GroqClient groqClient
+        - boolean isServiceBound
+        + onCreate()
+        - subscribeToServiceData()
+        - procesarNuevoPayload(json)
+        - actualizarUITexto()
+        .. Flujo ..
+        --> Se conecta al Servicio (Bind)
+        --> Muestra datos en tiempo real
+        --> Envía datos a Groq AI para análisis
+    }
+}
+
+package "Capa de Fondo (Background)" {
+    class TrackerService {
+        - FusedLocationProviderClient fusedLocationClient
+        - WakeLock wakeLock
+        - Handler timerHandler
+        - MutableLiveData lastPayload
+        - String userId
+        + onStartCommand()
+        + collectAndSendData()
+        - getGpsData()
+        - getNetworkData()
+        - getHardwareData()
+        - sendFinalData()
+        .. Funciones ..
+        --> Recolección cada 70s
+        --> Mantiene CPU activa (WakeLock)
+        --> Foreground Notification
+    }
+
+    class BootReceiver {
+        + onReceive()
+        .. Funciones ..
+        --> Detecta BOOT_COMPLETED
+        --> Reinicia TrackerService
+    }
+    
+    interface TrackerBinder {
+        + getService()
+    }
+}
+
+package "Capa de Red & Lógica" {
+    class GroqClient {
+        - OkHttpClient client
+        - String API_KEY
+        + analyzePayload(json, callback)
+        .. Funciones ..
+        --> Consulta a Llama 3 (Groq)
+        --> Detecta anomalías en datos
+    }
+}
+
+cloud "Servicios Externos" {
+    node "Firebase" {
+        database "Realtime Database" as RTDB {
+            folder "users/{userId}"
+            folder "geocelltrack/tracker/{userId}"
+        }
+        component "Firebase Auth" as Auth
+    }
+
+    node "Groq Cloud" {
+        component "Llama 3 API" as AI
+    }
+}
+
+' Relaciones
+MainActivity ..> PowerActivity : Intent (pasa userId)
+PowerActivity ..> RunningActivity : Intent
+PowerActivity ..> TrackerService : startForegroundService()
+
+RunningActivity ..> TrackerService : bindService()
+TrackerService +-- TrackerBinder
+
+BootReceiver ..> TrackerService : startForegroundService()
+
+' Relaciones de Datos
+MainActivity --> Auth : Verifica Teléfono
+MainActivity --> RTDB : Guarda Perfil Usuario
+
+TrackerService --> RTDB : Escribe datos de rastreo
+TrackerService --> "Android System" : Location & Telephony Manager
+
+RunningActivity --> GroqClient : Usa
+GroqClient --> AI : HTTP Request (JSON)
+
+@enduml

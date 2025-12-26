@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Color de la barra de aplicaciones -->
+        <item name="colorPrimary">#3F51B5</item>
+        <!-- Color de la barra de estado -->
+        <item name="colorPrimaryDark">#303F9F</item>
+        <!-- Color de acento para botones, etc. -->
+        <item name="colorAccent">#FF4081</item>
+    </style>
+
+    <!-- Tema para pantalla completa (sin ActionBar) -->
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+</resources>

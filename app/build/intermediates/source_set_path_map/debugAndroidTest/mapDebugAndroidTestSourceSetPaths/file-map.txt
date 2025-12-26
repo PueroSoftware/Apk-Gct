@@ -1,0 +1,6 @@
+org.pucusoft.geocelltrack.test.app-core-1.7.0-0 C:\Users\Josephpuero\.gradle\caches\8.13\transforms\cf41e1d4b704e1cbd41cfd98a4ef6f3f\transformed\core-1.7.0\res
+org.pucusoft.geocelltrack.test.app-androidTest-1 C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\generated\res\resValues\androidTest\debug
+org.pucusoft.geocelltrack.test.app-updated_navigation_xml-2 C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\generated\updated_navigation_xml\debugAndroidTest
+org.pucusoft.geocelltrack.test.app-mergeDebugAndroidTestResources-3 C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+org.pucusoft.geocelltrack.test.app-mergeDebugAndroidTestResources-4 C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+org.pucusoft.geocelltrack.test.app-debugAndroidTest-5 C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

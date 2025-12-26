@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "diagnostics": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "tracker": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "meta": {
+      "backgroundLocationJustification": {
+        ".read": "false",
+        ".write": "false"
+      }
+    }
+  }
+}
