@@ -1,7 +1,10 @@
 package org.pucusoft.geocelltrack;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -10,7 +13,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -28,7 +30,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@SuppressLint("SetTextI18n")
+@SuppressLint("SetTextI18n") 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "GeoCellTrack";
@@ -39,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -53,25 +54,40 @@ public class MainActivity extends AppCompatActivity {
         usersRef = database.getReference("users");
         firestore = FirebaseFirestore.getInstance();
 
+        // SOLUCIÓN: Separar la lógica
         if (auth.getCurrentUser() != null) {
+            // Si ya hay sesión, navegamos directamente
             navigateToPowerActivity(auth.getCurrentUser().getUid());
-            return;
+        } else {
+            // Si NO hay sesión, configuramos la UI para el login/registro
+            setupUIForLogin();
         }
-
-        setupUI();
     }
 
-    private void setupUI() {
+    private boolean isTelephonyDevice() {
+        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+    }
+
+    private void setupUIForLogin() {
         MaterialButton loginButton = findViewById(R.id.begin_btn);
         MaterialButton registerButton = findViewById(R.id.register_email_btn);
 
-        loginButton.setText("Iniciar Sesión");
-        loginButton.setOnClickListener(v -> showLoginDialog());
-        loginButton.setVisibility(View.VISIBLE);
+        if (isTelephonyDevice()) {
+            // Es un teléfono: Mostrar solo login
+            loginButton.setText("Iniciar Sesión");
+            loginButton.setOnClickListener(v -> showLoginDialog());
+            loginButton.setVisibility(View.VISIBLE);
+            registerButton.setVisibility(View.GONE);
+        } else {
+            // Es una tablet: Mostrar ambas opciones
+            loginButton.setText("Iniciar Sesión");
+            loginButton.setOnClickListener(v -> showLoginDialog());
+            loginButton.setVisibility(View.VISIBLE);
 
-        registerButton.setText("Crear Cuenta");
-        registerButton.setOnClickListener(v -> showRegisterDialog());
-        registerButton.setVisibility(View.VISIBLE);
+            registerButton.setText("Crear Cuenta");
+            registerButton.setOnClickListener(v -> showRegisterDialog());
+            registerButton.setVisibility(View.VISIBLE);
+        }
     }
 
     private void showRegisterDialog() {
@@ -81,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         final EditText etName = view.findViewById(R.id.dialogEditTextName);
         final EditText etEmail = view.findViewById(R.id.dialogEditTextEmail);
         final EditText etPass = view.findViewById(R.id.dialogEditTextPassword);
-        // Asumiendo que has añadido estos IDs en tu dialog_register.xml
         final EditText etCountry = view.findViewById(R.id.dialogEditTextCountry);
         final EditText etAreaCode = view.findViewById(R.id.dialogEditTextAreaCode);
         final EditText etPhone = view.findViewById(R.id.dialogEditTextPhone);
@@ -103,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         return;
                     }
 
-                    String fullPhoneNumber = "+" + areaCode + phone; // Construir número completo
+                    String fullPhoneNumber = "+" + areaCode + phone;
 
                     performRegistration(name, email, pass, country, fullPhoneNumber);
                 })
@@ -152,7 +167,13 @@ public class MainActivity extends AppCompatActivity {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(authResult -> {
                     Log.d(TAG, "Login exitoso");
-                    navigateToPowerActivity(authResult.getUser().getUid());
+                    FirebaseUser user = authResult.getUser();
+                    if (user != null) {
+                        navigateToPowerActivity(user.getUid());
+                    } else {
+                        Log.e(TAG, "Fallo crítico: Login exitoso pero el usuario es nulo.");
+                        Toast.makeText(this, "Error inesperado al iniciar sesión.", Toast.LENGTH_SHORT).show();
+                    }
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Error de Login: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
@@ -168,11 +189,9 @@ public class MainActivity extends AppCompatActivity {
         profileData.put("last_login", new Date().toString());
         profileData.put("status", "active");
 
-        // Guardar en Firestore (como fuente principal de perfiles)
         firestore.collection("profiles").document(uid).set(profileData)
                 .addOnSuccessListener(aVoid -> {
                     Log.d(TAG, "Perfil guardado en Firestore.");
-                    // Guardar copia o referencia en Realtime Database (opcional)
                     usersRef.child(uid).setValue(profileData);
                     navigateToPowerActivity(uid);
                 })
@@ -183,6 +202,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navigateToPowerActivity(String userId) {
+        // Guardar userId para el BootReceiver
+        SharedPreferences prefs = getSharedPreferences("GeoCellTrackPrefs", Context.MODE_PRIVATE);
+        prefs.edit().putString("userId", userId).apply();
+
         Intent intent = new Intent(MainActivity.this, PowerActivity.class);
         intent.putExtra("userId", userId);
         startActivity(intent);

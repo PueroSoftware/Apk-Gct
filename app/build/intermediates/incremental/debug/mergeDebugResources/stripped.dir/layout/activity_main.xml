@@ -8,70 +8,60 @@
     android:background="#1A1A1A"
     tools:context=".MainActivity">
 
-    <!-- Contenedor LinearLayout para centrar el logo y el título como un solo bloque -->
-    <LinearLayout
+    <!-- SOLUCIÓN: Un solo TextView con un Compound Drawable para optimizar el layout -->
+
+    <!-- Botón de Iniciar Sesión (parte de la cadena) -->
+
+    <TextView
         android:id="@+id/logo_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_width="278dp"
+        android:layout_height="441dp"
+        android:drawablePadding="16dp"
         android:gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:drawableTopCompat="@drawable/ic_logotipo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteY="30dp" />
 
-        <ImageView
-            android:id="@+id/logo_image"
-            android:layout_width="220dp" 
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_logotipo" />
-
-        <TextView
-            android:id="@+id/app_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <!-- Botones posicionados debajo del contenedor del logo -->
-
-    <!-- Botón de Iniciar con Celular (Oculto por defecto) -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/begin_btn"
-        style="@style/Widget.Material3.Button.OutlinedButton"
+        style="@style/Widget.Material3.Button"
         android:layout_width="277dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:padding="16dp"
-        android:text="Iniciar con Celular"
-        android:visibility="gone"
+        android:text="@string/btn_login"
+        android:textColor="@android:color/white"
+        android:visibility="gone" 
+        app:backgroundTint="@color/purple_500"
         app:icon="@android:drawable/ic_lock_idle_lock"
         app:iconGravity="textStart"
+        app:iconTint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/register_email_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_container" />
 
-    <!-- Botón de Registrarse con Email (Oculto por defecto) -->
+    <!-- Botón de Registrarse (parte de la cadena) -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/register_email_btn"
-        style="@style/Widget.Material3.Button.Icon"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="277dp"
         android:layout_height="70dp"
-        android:layout_marginTop="16dp"
         android:padding="16dp"
-        android:text="Registrar con Email (Tablet)"
+        android:text="@string/btn_register"
+        android:textColor="@android:color/white"
         android:visibility="gone"
         app:icon="@android:drawable/ic_dialog_email"
         app:iconGravity="textStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/begin_btn" />
+        app:iconTint="@android:color/white"
+        app:strokeColor="@android:color/white"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="544dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

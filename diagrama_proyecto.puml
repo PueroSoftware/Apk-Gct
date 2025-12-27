@@ -3,126 +3,76 @@
 skinparam classAttributeIconSize 0
 skinparam componentStyle uml2
 
-title Diagrama de Arquitectura - GeoCellTrack
+title Diagrama de Arquitectura Final - GeoCellTrack
 
+' Declaración de Actores
+actor "Usuario" as User
+
+' Declaración de Paquetes de la App
 package "Capa de Presentación (UI)" {
-    class MainActivity {
-        - FirebaseAuth auth
-        - DatabaseReference usersRef
-        + onCreate()
-        - showPhoneLoginDialog()
-        - startPhoneNumberVerification()
-        - checkUserAndNavigate()
-        - navigateToPowerActivity(userId)
-        .. Flujo ..
-        --> Autenticación Telefónica
-        --> Crea/Actualiza usuario en DB
-    }
-
-    class PowerActivity {
-        - String userId
-        - ExecutorService executorService
-        - ActivityResultLauncher permissionLauncher
-        + onCreate()
-        - setupUI()
-        - checkPermissionsAndStart()
-        - startPowerAnimation()
-        - startTrackerService()
-        .. Flujo ..
-        --> Verifica Permisos (Location, Phone)
-        --> Animaciones de Botón
-        --> Inicia Servicio en Foreground
-    }
-
-    class RunningActivity {
-        - TrackerService trackerService
-        - GroqClient groqClient
-        - boolean isServiceBound
-        + onCreate()
-        - subscribeToServiceData()
-        - procesarNuevoPayload(json)
-        - actualizarUITexto()
-        .. Flujo ..
-        --> Se conecta al Servicio (Bind)
-        --> Muestra datos en tiempo real
-        --> Envía datos a Groq AI para análisis
-    }
+    component "MainActivity" as MainActivity
+    component "PowerActivity" as PowerActivity
+    component "RunningActivity" as RunningActivity
 }
 
 package "Capa de Fondo (Background)" {
-    class TrackerService {
-        - FusedLocationProviderClient fusedLocationClient
-        - WakeLock wakeLock
-        - Handler timerHandler
-        - MutableLiveData lastPayload
-        - String userId
-        + onStartCommand()
-        + collectAndSendData()
-        - getGpsData()
-        - getNetworkData()
-        - getHardwareData()
-        - sendFinalData()
-        .. Funciones ..
-        --> Recolección cada 70s
-        --> Mantiene CPU activa (WakeLock)
-        --> Foreground Notification
-    }
-
-    class BootReceiver {
-        + onReceive()
-        .. Funciones ..
-        --> Detecta BOOT_COMPLETED
-        --> Reinicia TrackerService
-    }
-    
-    interface TrackerBinder {
-        + getService()
-    }
+    component "TrackerService" as TrackerService
+    component "BootReceiver" as BootReceiver
+    component "DetectedActivityReceiver" as DetectedActivityReceiver
 }
 
 package "Capa de Red & Lógica" {
-    class GroqClient {
-        - OkHttpClient client
-        - String API_KEY
-        + analyzePayload(json, callback)
-        .. Funciones ..
-        --> Consulta a Llama 3 (Groq)
-        --> Detecta anomalías en datos
-    }
+    component "GroqClient" as GroqClient
 }
 
-cloud "Servicios Externos" {
+' Declaración de Almacenamiento y Sistema
+database "SharedPreferences" as Prefs
+boundary "Sistema Android" as AndroidSystem
+
+' Declaración de Servicios en la Nube
+cloud "Servicios en la Nube" {
     node "Firebase" {
         database "Realtime Database" as RTDB {
             folder "users/{userId}"
             folder "geocelltrack/tracker/{userId}"
         }
-        component "Firebase Auth" as Auth
+        database "Firestore" as FS {
+            folder "profiles/{userId}"
+        }
+        component "Auth (Email/Pass)" as Auth
     }
-
     node "Groq Cloud" {
         component "Llama 3 API" as AI
     }
 }
 
-' Relaciones
-MainActivity ..> PowerActivity : Intent (pasa userId)
-PowerActivity ..> RunningActivity : Intent
-PowerActivity ..> TrackerService : startForegroundService()
+' --- RELACIONES DE FLUJO Y DATOS ---
 
-RunningActivity ..> TrackerService : bindService()
-TrackerService +-- TrackerBinder
+User -> MainActivity : 1. Inicia App y se autentica
+MainActivity -> Auth : 2. Valida credenciales (Email/Contraseña)
+MainActivity -> RTDB : 3. Guarda/Actualiza perfil en Realtime
+MainActivity -> FS : 3. Guarda/Actualiza perfil en Firestore
+MainActivity -> Prefs : 4. Guarda userId para reinicios
+MainActivity ..> PowerActivity : 5. Navega tras login exitoso
 
-BootReceiver ..> TrackerService : startForegroundService()
+PowerActivity ..> TrackerService : 6. Inicia servicio
+PowerActivity ..> RunningActivity : 7. Navega a monitoreo
 
-' Relaciones de Datos
-MainActivity --> Auth : Verifica Teléfono
-MainActivity --> RTDB : Guarda Perfil Usuario
+RunningActivity o--> TrackerService : 8. Se enlaza (bind) para recibir datos
+RunningActivity -> GroqClient : 9. Pide análisis de IA
+GroqClient --> AI : 10. Llama a la API de Groq
 
-TrackerService --> RTDB : Escribe datos de rastreo
-TrackerService --> "Android System" : Location & Telephony Manager
+' --- RELACIONES DE SEGUNDO PLANO ---
 
-RunningActivity --> GroqClient : Usa
-GroqClient --> AI : HTTP Request (JSON)
+AndroidSystem --> BootReceiver : (BOOT_COMPLETED)
+BootReceiver -> Prefs : Lee userId
+BootReceiver ..> TrackerService : Reinicia el servicio
+
+AndroidSystem --> DetectedActivityReceiver : (Actividad Detectada)
+DetectedActivityReceiver ..> TrackerService : (Informa para ajustar intervalo)
+
+TrackerService --> AndroidSystem : (Pide GPS y datos de red)
+TrackerService -> RTDB : Guarda datos de rastreo
+TrackerService -> Prefs : Guarda/Lee datos offline (caja negra)
 
 @enduml

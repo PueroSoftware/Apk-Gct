@@ -3,24 +3,24 @@
 3    package="org.pucusoft.geocelltrack.test" >
 4
 5    <uses-sdk
-5-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:5:5-74
+5-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:5:5-74
 6        android:minSdkVersion="26"
-6-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:5:15-41
+6-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:5:15-41
 7        android:targetSdkVersion="36" />
-7-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:5:42-71
+7-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:5:42-71
 8
 9    <instrumentation
-9-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:11:5-15:75
+9-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:11:5-15:75
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:11:22-76
+10-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:11:22-76
 11        android:functionalTest="false"
-11-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:14:22-52
+11-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:14:22-52
 12        android:handleProfiling="false"
-12-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:13:22-53
+12-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:13:22-53
 13        android:label="Tests for org.pucusoft.geocelltrack"
-13-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:15:22-73
+13-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:15:22-73
 14        android:targetPackage="org.pucusoft.geocelltrack" />
-14-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:12:22-71
+14-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:12:22-71
 15
 16    <queries>
 16-->[androidx.test:runner:1.7.0] C:\Users\Josephpuero\.gradle\caches\8.13\transforms\e5f6fae2880e6808c44fb6a5046d42fb\transformed\runner-1.7.0\AndroidManifest.xml:24:5-28:15
@@ -40,12 +40,12 @@
 22-->[androidx.test:core:1.7.0] C:\Users\Josephpuero\.gradle\caches\8.13\transforms\cf41e1d4b704e1cbd41cfd98a4ef6f3f\transformed\core-1.7.0\AndroidManifest.xml:24:22-69
 23
 24    <application
-24-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:7:5-9:19
+24-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:7:5-9:19
 25        android:debuggable="true"
 26        android:extractNativeLibs="false" >
 27        <uses-library android:name="android.test.runner" />
-27-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:8:9-60
-27-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12002741139812884713.xml:8:23-57
+27-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:8:9-60
+27-->C:\Users\Josephpuero\AndroidStudioProjects\GeoCellTrack\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest10699495142582875214.xml:8:23-57
 28
 29        <activity
 29-->[androidx.test:core:1.7.0] C:\Users\Josephpuero\.gradle\caches\8.13\transforms\cf41e1d4b704e1cbd41cfd98a4ef6f3f\transformed\core-1.7.0\AndroidManifest.xml:27:9-34:20

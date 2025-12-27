@@ -4,8 +4,6 @@ package org.pucusoft.geocelltrack.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,16 +21,10 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView appTitle;
-
-  @NonNull
   public final MaterialButton beginBtn;
 
   @NonNull
-  public final LinearLayout logoContainer;
-
-  @NonNull
-  public final ImageView logoImage;
+  public final TextView logoContainer;
 
   @NonNull
   public final ConstraintLayout main;
@@ -40,15 +32,12 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final MaterialButton registerEmailBtn;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull TextView appTitle,
-      @NonNull MaterialButton beginBtn, @NonNull LinearLayout logoContainer,
-      @NonNull ImageView logoImage, @NonNull ConstraintLayout main,
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull MaterialButton beginBtn,
+      @NonNull TextView logoContainer, @NonNull ConstraintLayout main,
       @NonNull MaterialButton registerEmailBtn) {
     this.rootView = rootView;
-    this.appTitle = appTitle;
     this.beginBtn = beginBtn;
     this.logoContainer = logoContainer;
-    this.logoImage = logoImage;
     this.main = main;
     this.registerEmailBtn = registerEmailBtn;
   }
@@ -80,12 +69,6 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.app_title;
-      TextView appTitle = ViewBindings.findChildViewById(rootView, id);
-      if (appTitle == null) {
-        break missingId;
-      }
-
       id = R.id.begin_btn;
       MaterialButton beginBtn = ViewBindings.findChildViewById(rootView, id);
       if (beginBtn == null) {
@@ -93,14 +76,8 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       id = R.id.logo_container;
-      LinearLayout logoContainer = ViewBindings.findChildViewById(rootView, id);
+      TextView logoContainer = ViewBindings.findChildViewById(rootView, id);
       if (logoContainer == null) {
-        break missingId;
-      }
-
-      id = R.id.logo_image;
-      ImageView logoImage = ViewBindings.findChildViewById(rootView, id);
-      if (logoImage == null) {
         break missingId;
       }
 
@@ -112,8 +89,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, appTitle, beginBtn, logoContainer,
-          logoImage, main, registerEmailBtn);
+      return new ActivityMainBinding((ConstraintLayout) rootView, beginBtn, logoContainer, main,
+          registerEmailBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

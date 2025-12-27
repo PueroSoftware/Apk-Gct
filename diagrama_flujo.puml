@@ -1,0 +1,77 @@
+@startuml
+!theme vibrant
+
+title Diagrama de Flujo - GeoCellTrack (Sintaxis Corregida)
+
+start
+
+partition "Fase de Autenticación (MainActivity)" {
+    :Usuario abre la aplicación;
+    if (Usuario ya logueado) then (sí)
+        :Leer userId desde Firebase Auth;
+    else (no)
+        if (Dispositivo es Telefono) then (sí)
+            :Mostrar solo botón 'Iniciar Sesión';
+        else (no, es Tablet)
+            :Mostrar botones 'Iniciar Sesión' y 'Registrar';
+        endif
+        :Usuario selecciona una opción;
+        if (Intenta Registrarse) then (sí)
+            :Mostrar diálogo de Registro;
+            :Usuario ingresa datos;
+            :Crear cuenta en Firebase Auth;
+            :Guardar perfil en Firestore y RTDB;
+        else (no, Inicia Sesión)
+            :Mostrar diálogo de Login;
+            :Usuario ingresa credenciales;
+            :Validar con Firebase Auth;
+        endif
+        :Guardar userId en SharedPreferences;
+    endif
+}
+
+partition "Fase de Preparación (PowerActivity)" {
+    :Navegar a PowerActivity con userId;
+    :Solicitar permisos (Ubicación, etc.);
+    if (Permisos concedidos) then (sí)
+        :Usuario presiona botón de Encendido;
+        :Iniciar TrackerService en modo Foreground;
+        :Navegar a RunningActivity;
+    else (no)
+        :Mostrar mensaje de error;
+        stop
+    endif
+}
+
+partition "Fase de Monitoreo (RunningActivity)" {
+    :Enlazar (bind) con TrackerService;
+    :Suscribirse a LiveData del servicio;
+    while (Servicio activo)
+        :Recibir payload de datos;
+        :Actualizar UI (cronómetro, etc.);
+        :Enviar payload a GroqClient;
+        :Recibir análisis de IA;
+        :Mostrar análisis en UI;
+    endwhile
+}
+
+' El siguiente bloque se ejecuta en paralelo
+partition "Ciclo del Servicio (TrackerService)" {
+    while (Servicio esta activo)
+        :Esperar intervalo (70s o 5min);
+        if (Hay datos offline) then (sí)
+            :Intentar reenviar datos guardados;
+        endif
+        :Recolectar datos (GPS, Red, Celda, Batería);
+        :Enviar a Firebase;
+        if (Envio exitoso) then (sí)
+            :Log de envío exitoso;
+        else (no, sin conexión)
+            :Guardar datos en SharedPreferences (caja negra);
+        endif
+    endwhile
+}
+
+stop
+
+@enduml

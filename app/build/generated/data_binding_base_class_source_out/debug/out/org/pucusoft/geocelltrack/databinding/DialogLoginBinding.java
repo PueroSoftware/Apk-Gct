@@ -4,12 +4,13 @@ package org.pucusoft.geocelltrack.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -20,16 +21,25 @@ public final class DialogLoginBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final EditText dialogLoginEmail;
+  public final TextInputEditText dialogLoginEmail;
 
   @NonNull
-  public final EditText dialogLoginPassword;
+  public final TextInputEditText dialogLoginPassword;
 
-  private DialogLoginBinding(@NonNull LinearLayout rootView, @NonNull EditText dialogLoginEmail,
-      @NonNull EditText dialogLoginPassword) {
+  @NonNull
+  public final TextInputLayout emailInputLayout;
+
+  @NonNull
+  public final TextInputLayout passwordInputLayout;
+
+  private DialogLoginBinding(@NonNull LinearLayout rootView,
+      @NonNull TextInputEditText dialogLoginEmail, @NonNull TextInputEditText dialogLoginPassword,
+      @NonNull TextInputLayout emailInputLayout, @NonNull TextInputLayout passwordInputLayout) {
     this.rootView = rootView;
     this.dialogLoginEmail = dialogLoginEmail;
     this.dialogLoginPassword = dialogLoginPassword;
+    this.emailInputLayout = emailInputLayout;
+    this.passwordInputLayout = passwordInputLayout;
   }
 
   @Override
@@ -60,18 +70,31 @@ public final class DialogLoginBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.dialogLoginEmail;
-      EditText dialogLoginEmail = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText dialogLoginEmail = ViewBindings.findChildViewById(rootView, id);
       if (dialogLoginEmail == null) {
         break missingId;
       }
 
       id = R.id.dialogLoginPassword;
-      EditText dialogLoginPassword = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText dialogLoginPassword = ViewBindings.findChildViewById(rootView, id);
       if (dialogLoginPassword == null) {
         break missingId;
       }
 
-      return new DialogLoginBinding((LinearLayout) rootView, dialogLoginEmail, dialogLoginPassword);
+      id = R.id.emailInputLayout;
+      TextInputLayout emailInputLayout = ViewBindings.findChildViewById(rootView, id);
+      if (emailInputLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.passwordInputLayout;
+      TextInputLayout passwordInputLayout = ViewBindings.findChildViewById(rootView, id);
+      if (passwordInputLayout == null) {
+        break missingId;
+      }
+
+      return new DialogLoginBinding((LinearLayout) rootView, dialogLoginEmail, dialogLoginPassword,
+          emailInputLayout, passwordInputLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -2447,6 +2447,9 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color purple_200
+color purple_500
+color purple_700
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -2459,6 +2462,8 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color teal_200
+color teal_700
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -3800,7 +3805,6 @@ id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
-id app_title
 id app_title_encendido
 id arc
 id asConfigured
@@ -3919,6 +3923,7 @@ id edge
 id edit_query
 id edit_text_id
 id elastic
+id emailInputLayout
 id embed
 id end
 id endToStart
@@ -3993,7 +3998,6 @@ id linear
 id listMode
 id list_item
 id logo_container
-id logo_image
 id logo_image_encendido
 id m3_side_sheet
 id main
@@ -4105,6 +4109,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id passwordInputLayout
 id password_toggle
 id path
 id pathRelative
@@ -4518,6 +4523,8 @@ string bottomsheet_action_collapse
 string bottomsheet_action_expand
 string bottomsheet_action_expand_halfway
 string bottomsheet_drag_handle_content_description
+string btn_login
+string btn_register
 string call_notification_answer_action
 string call_notification_answer_video_action
 string call_notification_decline_action
@@ -4564,9 +4571,10 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
+string hint_email
+string hint_password
 string icon_content_description
 string item_view_role_description
-string login_with_google
 string m3_exceed_max_badge_text_suffix
 string m3_loading_indicator_content_description
 string m3_ref_typeface_brand_medium
@@ -4681,7 +4689,6 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string power_button_desc
 string project_id
-string register_with_email
 string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description
@@ -4689,9 +4696,6 @@ string searchview_navigation_content_description
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
-string tracker_channel_name
-string tracker_notification_text
-string tracker_notification_title
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

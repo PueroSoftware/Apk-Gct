@@ -5,24 +5,27 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A1A1A"
+    android:background="@color/dark_background" 
     tools:context=".MainActivity">
 
-    <!-- Contenedor LinearLayout para centrar el logo y el título como un solo bloque -->
+    <!-- Contenedor para Logo y Título. Se suprime la advertencia de rendimiento a favor del control visual. -->
     <LinearLayout
         android:id="@+id/logo_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/register_email_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="UseCompoundDrawables"> 
 
         <ImageView
             android:id="@+id/logo_image"
-            android:layout_width="220dp" 
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:contentDescription="@string/app_name"
@@ -40,38 +43,61 @@
 
     </LinearLayout>
 
-    <!-- Botones posicionados debajo del contenedor del logo -->
-
-    <!-- Botón de Iniciar con Celular (Oculto por defecto) -->
+    <!-- Botón de Registrarse (Principal) -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/begin_btn"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="277dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="32dp"
-        android:padding="16dp"
-        android:text="Iniciar con Celular"
-        android:visibility="gone"
-        app:icon="@android:drawable/ic_lock_idle_lock"
+        android:id="@+id/register_email_btn"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="@string/btn_register"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:backgroundTint="@color/purple_500"
+        app:cornerRadius="24dp"
+        app:icon="@android:drawable/ic_dialog_email"
         app:iconGravity="textStart"
+        app:iconTint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/begin_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_container" />
 
-    <!-- Botón de Registrarse con Email (Oculto por defecto) -->
+    <!-- Botón de Iniciar Sesión (Secundario) -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/register_email_btn"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="277dp"
-        android:layout_height="70dp"
+        android:id="@+id/begin_btn"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:padding="16dp"
-        android:text="Registrar con Email (Tablet)"
-        android:visibility="gone"
-        app:icon="@android:drawable/ic_dialog_email"
+        android:text="@string/btn_login"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:cornerRadius="24dp"
+        app:icon="@android:drawable/ic_lock_idle_lock"
         app:iconGravity="textStart"
+        app:iconTint="#8AFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/close_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/begin_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/register_email_btn"
+        app:strokeColor="@android:color/white" />
+
+    <!-- Botón de Cerrar (X) -->
+    <ImageButton
+        android:id="@+id/close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/exit"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@android:color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

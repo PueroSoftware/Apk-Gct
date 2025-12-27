@@ -8,22 +8,26 @@
     <color name="console_green">#99CC00</color>
     <color name="gray">#808080</color>
     <color name="ic_launcher_background">#05F577</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">GeoCellTrack</string>
-    <string name="exit">Exit</string>
+    <string name="btn_login">Iniciar Sesión</string>
+    <string name="btn_register">Crear Cuenta</string>
+    <string name="exit">Salir</string>
     <string name="firebase_database_url" translatable="false">https://gct-dt-nsql-default-rtdb.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">471959672610</string>
     <string name="google_api_key" translatable="false">AIzaSyDrNzaFLTRjeVoenMASbOKhJ69F_OYuIXQ</string>
     <string name="google_app_id" translatable="false">1:471959672610:android:d2c7824b5510d25623f77b</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDrNzaFLTRjeVoenMASbOKhJ69F_OYuIXQ</string>
     <string name="google_storage_bucket" translatable="false">gct-dt-nsql.firebasestorage.app</string>
-    <string name="login_with_google">Login with Google</string>
-    <string name="power_button_desc">Botón para iniciar el servicio de rastreo</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="power_button_desc">Botón de encendido</string>
     <string name="project_id" translatable="false">gct-dt-nsql</string>
-    <string name="register_with_email">Register with Email</string>
-    <string name="tracker_channel_name">Tracker Service Channel</string>
-    <string name="tracker_notification_text">El tracker está en ejecución</string>
-    <string name="tracker_notification_title">GeoCellTrack</string>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">#3F51B5</item>
@@ -32,7 +36,7 @@
         
         <item name="colorAccent">#FF4081</item>
     </style>
-    <style name="Base.Theme.GeoCellTrack" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.GeoCellTrack" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         
     </style>
